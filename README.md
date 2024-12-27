@@ -1,7 +1,7 @@
 # Filecutter Toolkit
 
-The original Version of this Toolkit was created for the Skywind Project.
-A collection of tools modified to help the filecutting process for the Beyond Skyrim project: This version of the toolkit supports excel files exported by the `Skyrim Creation Kit`.
+The original Version of this Toolkit was created for the Skywind Project. This version was modified as of 27.12.2024.
+This project contains a collection of tools modified to help the filecutting process for the Beyond Skyrim project: This version of the toolkit supports excel files exported by the `Skyrim Creation Kit`.
 
 See the original Skywind Filecutter Toolkit [Wiki](https://gitlab.com/Slaynot/filecutter-toolkit/-/wikis/home) for more information on how to setup and use this project.
 
