@@ -1,13 +1,10 @@
-import re
+import functools
+import math
+
 import uno
 import unohelper
-import json
-import operator
-import math
-import functools
-
-from com.sun.star.datatransfer import XTransferable, DataFlavor
 from com.sun.star.awt import MessageBoxButtons as MSG_BUTTONS
+from com.sun.star.datatransfer import XTransferable, DataFlavor
 from com.sun.star.table import CellRangeAddress
 
 
