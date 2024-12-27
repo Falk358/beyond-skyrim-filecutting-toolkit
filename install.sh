@@ -4,8 +4,8 @@ clear
 
 Libreoffice_macro_path=$HOME/.config/libreoffice/4/user/Scripts/python
 Audacity_macro_path=$HOME/.audacity-data/Macros
-Libreoffice_macro_file=Skywind.py
-Audacity_macro_file=Skywind_Label.txt
+Libreoffice_macro_file=Skyrim.py
+Audacity_macro_file=Skyrim_Label.txt
 
 echo "-----[ Filecutter Toolkit installer ]-----"
 echo "."
@@ -34,7 +34,7 @@ echo "."
 echo "Installing the Toolkit files..."
 echo "Copying $Libreoffice_macro_file inside $Libreoffice_macro_path"
 cp $Libreoffice_macro_file $Libreoffice_macro_path
-echo "Copying Skywind_Label.txt inside $Audacity_macro_path"
+echo "Copying Skyrim_Label.txt inside $Audacity_macro_path"
 cp $Audacity_macro_file $Audacity_macro_path
 echo "."
 
