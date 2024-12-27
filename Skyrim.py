@@ -113,15 +113,9 @@ class FileCutterToolkit(object):
         Returns the script version or -1 if this is not a VA script
         """
 
-        if self.sheet.getCellByPosition(2, 1).String == "SEGMENT1":
-            return 0
-        elif (
-            self.sheet.getCellByPosition(0, 1).String == "Prompt"
-            or self.sheet.getCellByPosition(0, 2).String == "Prompt"
-        ):
+        cell_content = self.sheet.getCellByPosition(0, 0).String
+        if cell_content == "LINE ID":
             return 1
-        elif self.sheet.getCellByPosition(0, 2).String == "Filename":
-            return 2
         return -1
 
     def get_line_from_filename(self, filename):
