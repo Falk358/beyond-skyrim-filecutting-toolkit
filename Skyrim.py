@@ -126,7 +126,7 @@ class FileCutterToolkit(object):
         start, end = self.get_script_limits()
 
         for i in range(start, end):
-            if self.get_line_data(i)["filename"] == filename:
+            if self.get_line_data(i)["FILENAME"] == filename:
                 return i
 
         return -1
@@ -189,7 +189,7 @@ class FileCutterToolkit(object):
             script_start = 3
 
         script_stop = script_start
-        while self.get_line_data(script_stop)["filename"] != "":
+        while self.get_line_data(script_stop)["FILENAME"] != "":
             script_stop += 1
 
         return script_start, script_stop
@@ -215,8 +215,8 @@ class FileCutterToolkit(object):
         """
 
         total_cell = len(self.current_format)
-        filename_cell = self.current_format["filename"]
-        comment_cell = self.current_format["filecutterNotes"]
+        filename_cell = self.current_format["FILENAME"]
+        comment_cell = self.current_format["SCRIPT NOTES"]
 
         row_cells = []
 
@@ -244,7 +244,7 @@ class FileCutterToolkit(object):
         Return the line color in hex form
         """
 
-        filename_cell = self.current_format["filename"]
+        filename_cell = self.current_format["FILENAME"]
         cell = self.sheet.getCellByPosition(filename_cell, line_number)
 
         if cell.IsCellBackgroundTransparent:
@@ -328,7 +328,7 @@ class FileCutterToolkit(object):
         row_number = self.model.CurrentSelection.RangeAddress.StartRow
         line_data = self.get_line_data(row_number)
 
-        if line_data["filename"].startswith("IB"):
+        if line_data["FILENAME"].startswith("IB"):
             self.commit_line(
                 row_number, self.IB_COLOR, "Filename begins with IB", clipboard=True
             )
@@ -347,7 +347,7 @@ class FileCutterToolkit(object):
         line_data = self.get_line_data(row_number)
 
         comment = "Script error: TODO red highlight of mispell and comment"
-        if line_data["filename"].startswith("IB"):
+        if line_data["FILENAME"].startswith("IB"):
             self.commit_line(
                 row_number, self.MISPELLED_COLOR, comment, clipboard=True, bonus_IB=True
             )
@@ -365,7 +365,7 @@ class FileCutterToolkit(object):
         line_data = self.get_line_data(row_number)
 
         comment = "Sound quality: TODO describe the problem"
-        if line_data["filename"].startswith("IB"):
+        if line_data["FILENAME"].startswith("IB"):
             self.commit_line(
                 row_number, self.SOUND_QUALITY_COLOR, comment, bonus_IB=True
             )
@@ -383,7 +383,7 @@ class FileCutterToolkit(object):
         line_data = self.get_line_data(row_number)
 
         comment = "Acting: TODO helpful comment for the voice actor"
-        if line_data["filename"].startswith("IB"):
+        if line_data["FILENAME"].startswith("IB"):
             self.commit_line(row_number, self.ACTING_COLOR, comment, bonus_IB=True)
         else:
             self.commit_line(row_number, self.ACTING_COLOR, comment)
@@ -400,7 +400,7 @@ class FileCutterToolkit(object):
         comment = (
             "Mispronunciation: TODO red highlight of mispronunced word and comment"
         )
-        if line_data["filename"].startswith("IB"):
+        if line_data["FILENAME"].startswith("IB"):
             self.commit_line(
                 row_number, self.MISPRONUNCED_COLOR, comment, bonus_IB=True
             )
@@ -417,7 +417,7 @@ class FileCutterToolkit(object):
         line_data = self.get_line_data(row_number)
 
         comment = "Missing"
-        if line_data["filename"].startswith("IB"):
+        if line_data["FILENAME"].startswith("IB"):
             self.commit_line(row_number, self.MISSING_COLOR, comment, bonus_IB=True)
         else:
             self.commit_line(row_number, self.MISSING_COLOR, comment)
@@ -443,7 +443,7 @@ class FileCutterToolkit(object):
 
         for i in range(start, end):
             color = self.get_line_color(i)
-            filecutter_notes = self.get_line_data(i)["filecutterNotes"]
+            filecutter_notes = self.get_line_data(i)["SCRIPT NOTES"]
 
             if "TODO " in filecutter_notes:
                 template_left += 1
