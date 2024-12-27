@@ -175,19 +175,7 @@ class FileCutterToolkit(object):
         Returns line numbers corresponding to the first and last lines of the script
         """
 
-        if (
-            self.script_version == 1
-            and self.sheet.getCellByPosition(0, 1).String == "Prompt"
-        ):
-            script_start = 2
-        elif (
-            self.script_version == 1
-            and self.sheet.getCellByPosition(0, 2).String == "Prompt"
-        ):
-            script_start = 3
-        elif self.script_version == 2:
-            script_start = 3
-
+        script_start = 1
         script_stop = script_start
         while self.get_line_data(script_stop)["FILENAME"] != "":
             script_stop += 1
